@@ -1,5 +1,7 @@
 # famidash-snes-port
 
+WORK DONE BY CLAUDE - THIS SUCKS REALLY BAD
+
 Exploratory work on porting [Famidash](https://github.com/tfdsoft/famidash) — a Geometry Dash
 demake for the NES (cc65 / MMC3) — to the SNES.
 
