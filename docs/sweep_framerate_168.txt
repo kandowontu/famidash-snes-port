@@ -1,0 +1,171 @@
+level                     %60Hz  worst-300
+ 0 STEREOMADNESS           100.0      100.0
+ 1 BACKONTRACK              99.7       99.0
+ 2 POLARGEIST               99.7       99.7
+ 3 DRYOUT                   99.8       99.3
+ 4 BASEAFTERBASE            98.2       99.0
+ 5 CANTLETGO                99.1       98.3
+ 6 JUMPER                   98.9       98.0
+ 7 TIMEMACHINE              99.8       99.3
+ 8 CYCLES                   94.8       89.7  <-- SLOW
+ 9 XSTEP                    77.4       65.7  <-- SLOW
+10 CLUTTERFUNK              99.6       99.0
+11 THEORYOFEVERYTHING       93.2       79.3  <-- SLOW
+12 ELECTROMANADVENTURES     83.9       79.7  <-- SLOW
+13 CLUBSTEP                 86.5       82.0  <-- SLOW
+14 ELECTRODYNAMIX           95.0       92.0
+15 HEXAGONFORCE             95.1       90.3
+16 BLASTPROCESSING          99.7       99.0
+17 TOE2                     95.6       93.0
+18 GEOMETRICALDOMINATOR     99.7       99.3
+19 DEADLOCKED               94.1       88.7  <-- SLOW
+20 FINGERDASH               99.7       99.3
+21 DASH                     86.6       77.7  <-- SLOW
+22 EXPLORERS                79.9       70.3  <-- SLOW
+23 THETOWER                100.0      100.0
+24 THESEWERS               100.0      100.0
+25 THECELLAR               100.0      100.0
+26 THESECRETHOLLOW         100.0      100.0
+27 THECHALLENGE             96.5       94.7
+28 BESTAUTOMATICLVL         99.6       99.7
+29 MOVIE                   100.0      100.0
+30 RETRAY                   99.5       99.0
+31 GROUNDTORETRAY           98.2       94.3
+32 SONAR                   100.0      100.0
+33 DARKPARADISE             94.0       93.0  <-- SLOW
+34 MADNESS                  99.8       99.7
+35 FEATHER                 100.0      100.0
+36 DOUBLETRIPLETRIAL        95.4       97.3
+37 XMASCHALLENGE            64.7       48.7  <-- SLOW
+38 SHORT_KINGS              98.1       96.0
+39 NICKTOONS               100.0      100.0
+40 COSMICDOLPHIN            97.3       96.0
+41 LEVELEASY                99.7       99.0
+42 DORABAEBASIC4            92.5       90.0  <-- SLOW
+43 NINOX                    96.5       88.7
+44 DORABAEBASIC6           100.0      100.0
+45 SOMEWHEREINAFOREST      100.0      100.0
+46 DREAMER                 100.0      100.0
+47 ILLUSION                 98.6       95.3
+48 LOOKATTHISLEVEL          99.9       99.7
+49 HUNGRYMANADVENTURES      85.5       76.0  <-- SLOW
+50 DORABAEBASIC7            99.9       99.7
+51 STORYMADNESS             95.4       91.0
+52 GROUNDTOSPACE            99.7       99.0
+53 AJOLLYRETROCHRISTMAS     97.7       98.3
+54 OUTERSPACE               89.5       78.3  <-- SLOW
+55 ULTIATEDESTRUCTION       92.2       86.0  <-- SLOW
+56 CHIPPE                   99.7       99.3
+57 SUBZERO                  94.2       89.7  <-- SLOW
+58 MOONLIGHT               100.0      100.0
+59 FOFII_FOFII_FOFII        97.6       94.3
+60 SELECTPAYMENTTYPE        96.4       94.0
+61 PYROPHORIC               90.4       86.7  <-- SLOW
+62 CRYOGENIC                99.3       97.7
+63 CHROMATICEXPEDITION      93.4       88.0  <-- SLOW
+64 OCEANE                   78.5       65.0  <-- SLOW
+65 ENDGAME                  77.5       68.7  <-- SLOW
+66 GENERATIONRETRO          97.5       96.3
+67 SCARLETSURGE             99.2       99.3
+68 TINYTUNES                94.5       91.3  <-- SLOW
+69 KAPPACLYSM               97.4       92.7
+70 SUNSHINE                 95.8       93.3
+71 REVOLUTION               95.4       93.7
+72 FUNNYGAMEHOLIDAY         94.7       91.3  <-- SLOW
+73 FIREAURA                 96.8       89.3
+74 RAINBOWDUST              94.1       87.0  <-- SLOW
+75 ROTD                     94.5       86.0  <-- SLOW
+76 WINTHERACE               94.0       85.3  <-- SLOW
+77 FACTORYTIME              99.2       99.7
+78 THESTEAMWORKS            99.6       98.7
+79 ASTRONOMICALEXPEDITION   92.8       91.7  <-- SLOW
+80 NINECIRCLESEASY          94.5       88.0  <-- SLOW
+81 CAREFREEVICTORY          87.1       82.7  <-- SLOW
+82 LOSTINTHEWOODS           98.6       97.0
+83 RAININGTACOS             89.1       89.3  <-- SLOW
+84 OVERAWED                 99.9       99.7
+85 BLOODBATHBUTNO          100.0      100.0
+86 RAINBOWTYLENOL           92.4       84.3  <-- SLOW
+87 GREIF                    96.1       93.3
+88 DORABAEBASIC10           86.2       79.3  <-- SLOW
+89 OFFTOMARS                83.4       62.0  <-- SLOW
+90 UNITY                    97.9       99.3
+91 AKRILE                   91.7       82.7  <-- SLOW
+92 SUBTLEODDITIES           98.1       97.7
+93 POWERTRIP                90.7       78.3  <-- SLOW
+94 DANCEOFVIOLINS           93.8       83.3  <-- SLOW
+95 NEWDASHCITY              94.1       91.0  <-- SLOW
+96 DASTARDLY               100.0      100.0
+97 THETRIPLETRIAL           82.1       78.0  <-- SLOW
+98 TROLLEDFIX               97.5       94.0
+99 BIRDBRAIN                89.1       80.7  <-- SLOW
+100 APRETTYEASYLEVEL         97.5       96.3
+101 TETRIX                   99.2       97.7
+102 HIGHLIFE                 90.7       86.7  <-- SLOW
+103 EXTRAORDINARYEXCITEMENT   93.6       91.0  <-- SLOW
+104 THELIGHTNINGROAD         98.8       96.3
+105 NIGHTMARE                95.2       89.7
+106 DEMONPARK                98.3       95.3
+107 SUPERCYCLES              96.7       94.0
+108 XX                       99.0       98.0
+109 PROBLEMATIC              83.4       70.0  <-- SLOW
+110 INFINITECIRCLES          87.3       75.7  <-- SLOW
+111 SONICBLASTER             85.7       68.7  <-- SLOW
+112 DECODE                   94.1       88.7  <-- SLOW
+113 DEATHMOON                99.1       97.3
+114 CLUTTERFUNK2             78.1       64.0  <-- SLOW
+115 MOTION                   95.6       92.3
+116 SPEEDRACER               83.6       59.7  <-- SLOW
+117 ENDORPHINRUSH            93.3       88.7  <-- SLOW
+118 RESPITEV2               100.0      100.0
+119 CHAOZIMPACT              87.2       77.7  <-- SLOW
+120 EVERYMADNESS            100.0      100.0
+121 SKELETALSHENANIGANS      97.9       94.7
+122 TRYTHISGD                98.6       97.7
+123 GOLDENHAZE               85.2       79.7  <-- SLOW
+124 HELL                     97.5       94.0
+125 GAMEOVER                 99.4       99.3
+126 SOLARCIRCLES             88.0       69.7  <-- SLOW
+127 INVISIBLELIGHT           98.5       96.7
+128 FIRETEMPLE              100.0      100.0
+129 DEMONPYROPHORIC          81.7       78.7  <-- SLOW
+130 TOEIIV2                  94.9       90.0  <-- SLOW
+131 WATERTEMPLE              99.9       99.7
+132 PGCLUBSTEP               95.8       85.7
+133 DEADLYCLUBSTEP           85.2       71.0  <-- SLOW
+134 THERMODYNAMIX            92.6       90.7  <-- SLOW
+135 DEMONCRYOGENIC           90.8       80.7  <-- SLOW
+136 AZURONXOLAX              93.8       84.7  <-- SLOW
+137 SHADOWTEMPLE             90.4       79.3  <-- SLOW
+138 FORESTTEMPLE            100.0      100.0
+139 NINECIRCLES              94.6       92.0  <-- SLOW
+140 FAIRYDUST                89.7       80.7  <-- SLOW
+141 JAWBREAKER               90.0       84.7  <-- SLOW
+142 FUTUREFUNKFIX            95.2       92.3
+143 DENOUEMENT               98.8       96.0
+144 STALEMATE                97.5       93.3
+145 EIGHTO                   77.7       68.7  <-- SLOW
+146 ACROPOLIS                99.3       98.3
+147 HI                       94.5       94.3  <-- SLOW
+148 EON                      98.6       96.3
+149 WINDYLANDSCAPE           84.0       65.3  <-- SLOW
+150 ICDX                     78.1       67.0  <-- SLOW
+151 SONICWAVE                92.6       88.3  <-- SLOW
+152 STYX                     86.1       65.3  <-- SLOW
+153 BLOODBATH                90.7       80.7  <-- SLOW
+154 CATACLYSM                76.6       78.3  <-- SLOW
+155 AFTERMATH                89.3       81.0  <-- SLOW
+156 WCROPOLIX                90.8       87.0  <-- SLOW
+157 SILENTCLUBSTEP           77.6       75.0  <-- SLOW
+158 AFTERCATABATH            79.9       78.0  <-- SLOW
+159 SHARDSCAPES             100.0      100.0
+160 ELEMENT111RG             97.7       93.7
+161 SLAUGHTERHOUSE           97.0       89.7
+162 KRATOS                   97.1       90.0
+163 NULLSCAPES              100.0      100.0
+164 EVERYEND                100.0      100.0
+165 HELIOPOLIS               89.7       87.0  <-- SLOW
+166 SILENTCIRCLES            95.5       87.0
+167 LUCKYDRAW               100.0      100.0
+
+RESULT: 72 of 168 levels below 95% of 60Hz

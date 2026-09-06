@@ -1,0 +1,170 @@
+#!/usr/bin/env python3
+"""Emit out/gamemode_expect.lua: which OBJ tiles each gamemode may draw.
+
+Parsed straight out of SAUCE/defines/sprites.h, so it is an independent oracle
+for verify_gamemode_sprites.lua rather than a restatement of what the shim does
+(docs/HANDOFF.md trap 61).
+
+For each gamemode the shim's sprite_table_table row names a metasprite table;
+each entry of that table is a metasprite, and each quadruplet in a metasprite
+carries an NES tile byte. In 8x16 mode that byte is (pattern_table | pair << 1),
+and oam_spr maps it to SNES OBJ tiles:
+
+    OBJ = (byte & 1) * 256 + (byte & 0xFE)  and that + 1
+
+    python tools/gen_gamemode_expect.py [--root C:/famidash] [--outdir out]
+"""
+import argparse
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+SPRITES = "SAUCE/defines/sprites.h"
+
+# gamemode number -> (name, table identifier in sprites.h). Mirrors
+# sprite_table_table_lo's first row in LIB/asm/nesdash.s; ninja and football
+# share the cube's art there.
+GAMEMODES = [
+    (0,  "cube",     "CUBE"),
+    (1,  "ship",     "SHIP"),
+    (2,  "ball",     "BALL"),
+    (3,  "ufo",      "UFO"),
+    (4,  "robot",    "ROBOT"),
+    (5,  "spider",   "SPIDER"),
+    (6,  "wave",     "WAVE"),
+    (7,  "swing",    "SWING"),
+    (8,  "ninja",    "CUBE"),
+    (9,  "pogo",     "POGO"),
+    (10, "snake",    "SNAKE"),
+    (11, "football", "CUBE"),
+]
+
+# The same row out of _drawplayertwo's own sprite_table_table_lo. Player two has
+# a full second set of art, which is what makes "did player two draw?" a
+# checkable question rather than a matter of counting OAM entries: the two
+# players' tile sets are disjoint.
+GAMEMODES_P2 = [
+    (0,  "cube",     "CUBE2"),
+    (1,  "ship",     "SHIP2"),
+    (2,  "ball",     "BALL2"),
+    (3,  "ufo",      "UFO2"),
+    (4,  "robot",    "ROBOT2"),
+    (5,  "spider",   "SPIDER2"),
+    (6,  "wave",     "WAVE2"),
+    (7,  "swing",    "SWING2"),
+    (8,  "ninja",    "CUBE2"),
+    (9,  "pogo",     "POGO2"),
+    (10, "snake",    "SNAKE2"),
+    (11, "football", "CUBE2"),
+]
+
+
+def parse_metasprites(text):
+    """{name: ([tile bytes], [palettes])} per `const unsigned char NAME[] = {}`.
+
+    The palette is the low two bits of the attribute byte, which is written
+    either as a plain number or as `3|OAM_FLIP_H`; the flip flags are dropped.
+    It matters because the two players' art is the SAME TILES under a DIFFERENT
+    PALETTE - Cube_0 names tile $0B under palette 3 and Cube2_0 names $0B under
+    palette 1 - so the palette is the only thing that tells the two apart.
+    """
+    out = {}
+    for m in re.finditer(
+            r"const\s+unsigned\s+char\s+(\w+)\s*\[\s*\]\s*=\s*\{(.*?)\}\s*;",
+            text, re.S):
+        name, body = m.group(1), m.group(2)
+        body = re.sub(r"//[^\n]*", "", body)
+        nums = [t.strip() for t in body.split(",")]
+        tiles, pals, i = [], [], 0
+        # (dx, dy, tile, attr) quadruplets, terminated by an x offset of 0x80.
+        while i + 3 < len(nums):
+            dx = nums[i]
+            if dx.strip() in ("0x80", "128"):
+                break
+            try:
+                tiles.append(int(nums[i + 2].strip(), 0))
+            except ValueError:
+                pass                    # symbolic entry - not a plain tile byte
+            attr = nums[i + 3].split("|")[0].strip()
+            try:
+                pals.append(int(attr, 0) & 3)
+            except ValueError:
+                pass
+            i += 4
+        if tiles:
+            out[name] = (tiles, pals)
+    return out
+
+
+def parse_tables(text):
+    """{name: [metasprite names]} for `const unsigned char * const NAME[]`."""
+    out = {}
+    for m in re.finditer(
+            r"const\s+unsigned\s+char\s*\*\s*const\s+(\w+)\s*\[\s*\]\s*=\s*\{([^}]*)\}",
+            text):
+        out[m.group(1)] = [e.strip() for e in m.group(2).split(",") if e.strip()]
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--root", default="C:/famidash")
+    ap.add_argument("--outdir", default=str(ROOT / "out"))
+    args = ap.parse_args()
+
+    path = Path(args.root) / SPRITES
+    if not path.exists():
+        sys.exit(f"{path} not found")
+    text = path.read_text(errors="replace")
+
+    metas, tables = parse_metasprites(text), parse_tables(text)
+
+    def sets_of(table):
+        if table not in tables:
+            sys.exit(f"{table}: sprite table not found in {SPRITES}")
+        tiles, pals = set(), set()
+        for entry in tables[table]:
+            t, p = metas.get(entry, ([], []))
+            for b in t:
+                base = (b & 1) * 256 + (b & 0xFE)
+                tiles.add(base)
+                tiles.add(base + 1)
+            pals.update(p)
+        if not tiles:
+            sys.exit(f"{table}: no tiles resolved - metasprite parse failed")
+        return tiles, pals
+
+    def emit(modes, filename):
+        lines = ["-- generated by tools/gen_gamemode_expect.py from " + SPRITES,
+                 "-- do not edit; the OBJ tiles and palettes each gamemode's",
+                 "-- sprite table can name",
+                 "return {"]
+        for gm, name, table in modes:
+            tiles, pals = sets_of(table)
+            body = ", ".join(f"[{t}]=true" for t in sorted(tiles))
+            pbody = ", ".join(f"[{p}]=true" for p in sorted(pals))
+            lines.append(f'  [{gm}] = {{ name = "{name}", tiles = {{ {body} }},'
+                         f' pals = {{ {pbody} }} }},')
+        lines.append("}")
+        (Path(args.outdir) / filename).write_text("\n".join(lines) + "\n")
+
+    emit(GAMEMODES, "gamemode_expect.lua")
+    emit(GAMEMODES_P2, "gamemode_expect_p2.lua")
+
+    # verify_dual.lua tells the two players apart by PALETTE, and that only works
+    # while their palettes are disjoint. Report it here rather than letting the
+    # check discover it as a silent pass: player two's art is the same tiles
+    # recoloured, so a gamemode whose two rows share a palette would go green
+    # while proving nothing.
+    clash = [name for (gm, name, t1), (_, _, t2) in zip(GAMEMODES, GAMEMODES_P2)
+             if sets_of(t1)[1] & sets_of(t2)[1]]
+    print(f"    gamemode_expect.lua + _p2.lua ({len(GAMEMODES)} gamemodes, "
+          f"{len(metas)} metasprites, {len(tables)} tables"
+          + (f"; PALETTES CLASH: {', '.join(sorted(set(clash)))}" if clash
+             else "; the two players' palettes are disjoint") + ")")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

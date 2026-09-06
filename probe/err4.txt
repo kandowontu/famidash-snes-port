@@ -1,0 +1,30 @@
+In file included from probe/probe4.c:17:
+C:/famidash/SAUCE\functions/collision.h:59:17: warning: self-comparison always evaluates to true [-Wtautological-compare]
+                        if (gamemode == gamemode == GAMEMODE_WAVE || gamemode == GAMEMODE_SNAKE) return 0;
+                                     ^
+C:/famidash/SAUCE\functions/collision.h:59:29: warning: result of comparison of constant 6 with boolean expression is always false [-Wtautological-constant-out-of-range-compare]
+                        if (gamemode == gamemode == GAMEMODE_WAVE || gamemode == GAMEMODE_SNAKE) return 0;
+                            ~~~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~
+In file included from probe/probe4.c:20:
+C:/famidash/SAUCE\gamemodes/gamemode_ball.h:80:22: warning: implicit declaration of function 'sprite_gamemode_controller_check' is invalid in C99 [-Wimplicit-function-declaration]
+                        crossPRGBankJump0(sprite_gamemode_controller_check);
+                                          ^
+C:/famidash/SAUCE\gamemodes/gamemode_ball.h:99:32: warning: implicit declaration of function 'sprite_gamemode_y_adjust' is invalid in C99 [-Wimplicit-function-declaration]
+                                                tmpA = crossPRGBankJump0(sprite_gamemode_y_adjust);
+                                                                         ^
+C:/famidash/SAUCE\gamemodes/gamemode_ball.h:117:32: warning: implicit declaration of function 'sprite_gamemode_y_adjust' is invalid in C99 [-Wimplicit-function-declaration]
+                                                tmpA = crossPRGBankJump0(sprite_gamemode_y_adjust);
+                                                                         ^
+In file included from probe/probe4.c:23:
+overlay\gamemodes/gamemode_spider.h:101:21: warning: implicit declaration of function 'process_y_scroll' is invalid in C99 [-Wimplicit-function-declaration]
+                crossPRGBankJump0(process_y_scroll);
+                                  ^
+overlay\gamemodes/gamemode_spider.h:115:21: warning: implicit declaration of function 'process_y_scroll' is invalid in C99 [-Wimplicit-function-declaration]
+                crossPRGBankJump0(process_y_scroll);
+                                  ^
+In file included from probe/probe4.c:24:
+C:/famidash/SAUCE\gamemodes/gamemode_wave.h:22:23: warning: implicit declaration of function 'sprite_gamemode_controller_check' is invalid in C99 [-Wimplicit-function-declaration]
+                                crossPRGBankJump0(sprite_gamemode_controller_check);
+                                                  ^
+internal error: unexpected expr tag 83 TT_EndDeclStmt
+Terminating due to errors

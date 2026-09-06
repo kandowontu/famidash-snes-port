@@ -1,0 +1,8 @@
+add_scroll_y
+bg_collision_sub
+controllingplayer
+framerate
+min_scroll_y
+mmc3_set_prg_bank_1
+pad_poll
+update_currplayer_table_idx
